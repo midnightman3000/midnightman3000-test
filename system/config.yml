@@ -1,10 +1,11 @@
-database:
-    driver: mysql
-    host: localhost
-    dbname: database_name
-    user: root
-    password: password
-    charset: utf8
+storage:
+    mysql:
+        host: localhost
+        dbname: database_name
+        user: root
+        password: password
+        charset: utf8
+    default: mysql
 host:
-	controllers:
-		- [proxy, user]
+    controllers:
+        - [proxy, user]

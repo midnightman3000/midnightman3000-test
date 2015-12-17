@@ -13,7 +13,11 @@ class UserController extends BaseController
     
     public function addAction($args = [])
     {
-        var_dump(Core::getConfig('database'));
+        $user = new \Alex\Model\User();
+        $user->setName("ooopps!");
+        $user->changeName("new value");
+        echo $user->getName();
+        return 'WEHJTREWEGH';
     }
     
     public function editAction($args = [])

@@ -7,6 +7,8 @@ use Alex\Helper\CoreHelper;
 
 class Core
 {
+    static public $helper;
+
     static public function init($app)
     {
         CoreHelper::initKeys();
@@ -34,7 +36,25 @@ class Core
                     break;
             }
             $action .= 'Action';
-            return (new Controller\ErrorController)->{$action}();
+            return (new Controller\ErrorController)->{$action}($e);
         });
+    }
+
+    static public function getHelper()
+    {
+        if (!isset(self::$helper)) {
+            self::$helper = new CoreHelper();
+        }
+        return self::$helper;
+    }
+
+    static public function getDefaultStorage()
+    {
+
+    }
+
+    static public function getStorage($name)
+    {
+        
     }
 }

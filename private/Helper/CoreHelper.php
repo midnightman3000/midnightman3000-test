@@ -2,6 +2,8 @@
 
 namespace Alex\Helper;
 
+use Symfony\Component\Yaml\Parser as YamlParser;
+
 class CoreHelper
 {
 	const KEY_DIRECTORY = 'keys';
@@ -30,7 +32,7 @@ class CoreHelper
         return self::getYamlParser()->parse(file_get_contents($file));
     }
     
-    public static function getConfig($section, $key = '')
+    public function getConfig($section, $key = '')
     {
         if (empty(self::$systemConfig)) {
             self::$systemConfig = self::parseYamlFile(CONFIG_FILE);
